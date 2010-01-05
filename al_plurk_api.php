@@ -497,6 +497,8 @@ class al_plurk_api
 
         $array_plurks = al_plurk_api::dejsonize($data);
 
+	if( !is_array( $array_plurks))
+		return array();
         foreach ($array_plurks as &$plurk) {
             $plurk['nick_name'] = $this->uid_to_nickname((int) $plurk['owner_id']);
 
